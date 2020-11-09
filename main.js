@@ -4,6 +4,7 @@ const search = require('./search.js');
 const randomElement = require('./random-element.js');
 const emojis = require('./emojis.js');
 const getCategory = require('./get-category');
+const madlibs = require('./madlib-word.js');
 
 const command = process.argv[2];
 const words = process.argv.slice(3);
@@ -57,12 +58,10 @@ switch (command) {
         }
         break;
 
-    case 'mad libs':
-        
-
-
-
-
+    case 'madlibs':
+        const result = words.map(madlibs);
+        console.log(result.join(' '));
+        break;
 
     default:
         console.log('Your choices for what to write after "node main.js" (and a space!) are:');
