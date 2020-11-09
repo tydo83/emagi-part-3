@@ -37,7 +37,7 @@ const encodeWordAlt = function(word) {
     return encodedLetters.join('');
 }
 
-// mapping with no intermediate variables verson.
+// mapping with no intermediate variables version.
 const encodeWordAlt2 = function(word) {
     return word.split('').map(function(letter) {
         for (const emoji of emojis) {

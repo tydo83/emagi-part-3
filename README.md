@@ -90,7 +90,40 @@ Let's add the randomness feature. You've got a helper function already written f
 
 6) Check that both searches still work! Try `node main.js random` and see if you're getting different kinds of emojis, and try `node main.js plant`, which only has cactus and christmas tree.
 
-
 ### Mad Libs
 
-Coming soon!
+Mad Libs is a complicated feature taken as a whole; map over the user's sentence, where for each word, give back either the word or, if it's a category word, a random emoji from that category. That's a map, a filter (only the emojis that belong to each category), and a reduce (take that array and give me back only one random element from it).
+
+But, since we already wrote the filter (`getCategory`), and the reduce was written for us (`randomElement`), all we need to do is map using them.
+
+You got this. Bring it home!
+
+1) Create a new `madlib-word.js` file with a `madlibWord` function that gets exported at the bottom. We don't need the `emojis` this time--that will get handled within `getCategory`. But we do need `getCategory` from its file, as well as `randomElement` from its file.
+
+2) `madlibWord` will take in one thing, a word from the user's sentence, and give you back either that word or a random emoji symbol. Take in a parameter, maybe just called `word`.
+
+3) Call `getCategory` on that word, saving the result in a variable. (`category`?) Remember that this is an array of emoji objects that match that category.
+
+4) Check if there's anything in there. If we gave `getCategory` the string `weather`, it would give us all `weather` objects, but if we give it the string `microphone`, it would return an empty array. How can we check if an array is empty? You'll figure it out!
+
+5) If there is nothing in there, return the parameter unchanged.
+
+6) If there IS something in there, then we have an array of emoji objects. We want a random emoji object from that list, so pass that `category` array to `randomElement` and save it to a variable. (Though this isn't a strictly necessary intermediate variable if you wanna try to skip it!)
+
+7) Now return that random emoji object's `symbol` property!
+
+8) Okay, let's deal with the front end in `main.js`. Fortunately, this one is much more straightforward on the front end than randomness or searching, and is in fact practically identical to the encoding and translation features. Take your user's sentence, map over it with `madlibWord`, join that into a string, and print it out. BAM. Done!
+
+9) Check your result. Try running `node main.js eating food in the weather makes me face`. You should see something like `eating 🍣 in the 🌩 makes me 😭` or `eating 🍿 in the 🌞 makes me 😁` or `eating 🍉 in the 🌨 makes me 👻` or something random like that. Make sure you're getting words and emojis mixed together, and you've got it!
+
+
+### Adding To Our Menu
+
+If the user types in `node main.js` or `node main.js help` or something else "invalid", do you tell them what their options are? Tell them how to use your app! What are the features? How do they use them? Be user-friendly!
+
+
+### Conclusion
+
+We hope you had a great time with Emagi. It's a fun app that uses a lot of pretty advanced JavaScript. This is an absolutely fantastic app to return to to work on your `.filter` and `.map` and object skills if you need a brush-up!
+
+Stay 😎, 🐅👑.
